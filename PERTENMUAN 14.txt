@@ -1,0 +1,50 @@
+#DAN INI ADALAH FUNCTIONNYA UNTUK MENENTUKAN BILANGA
+Function BilGenap(input n:integer)->boolean
+{menerima input berupa bil n,Menampilkan true jika 
+bilangan genap, atau false jika tidak genap}
+DEKLARASI :
+
+ALGORITMA : 
+  return (n mod 2 = 0 ) 
+  
+
+
+#INI PEMANGGILAN PROGRAM KE FUNCTIONNYA 
+PROGRAM PanggilBilanganGenap 
+{dinputkan n oleh pengguna, Menampilkan nilai fungsi bilangan}
+
+DEKLARASI 
+   n:integer 
+  Function BilGenap(input n:integer)->boolean
+  
+ALGORITMA
+  read(n)
+  if BilGenap(n) then 
+      write("bilangan",n,"adalah genap")
+  else
+      write("bilangan",n,"adalah bukan genap")
+  endif
+
+#LATIHAN 1
+
+# menghitung luas LuasPersegi
+Function LuasPersegi(input sisi:integer)->integer
+{menerima input berupa sisi.sisi di input oleh user}
+
+DEKLARASI :
+
+ALGORITMA : 
+  return luas<-sisi*sisi
+  
+
+#PEMANGGILAN Function
+PROGRAM PemanggilLuasPersegi
+  {dinputkan oleh user}
+DEKLARASI 
+  LuasPersegi(input sisi:integer)->integer
+  
+ALGORITMA
+  read(sisi)
+  luas->PemanggilLuasPersegi(sisi)
+  write("maka luas hasilnya adalah",luas)
+  

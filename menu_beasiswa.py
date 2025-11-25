@@ -2,7 +2,7 @@ import openpyxl
 import os
 from datetime import datetime
 
-FILE_NAME = 'data_beasiswa.xlsx'
+FILE_NAME = 'data_beasiswa.xlsx' 
 
 def create_sheet_if_not_exists (workbook, sheet_name, header=None):
     """Buat sheet baru jika tidak ada dan tambahkan header jika

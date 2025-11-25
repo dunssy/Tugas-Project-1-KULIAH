@@ -1,0 +1,20 @@
+
+#LATIHAN 2
+Function TahunKabisat(input tahun:integer)->integer
+{menentukan sebuah tahun kabisat atau bukan kabisat}
+DEKLARASI
+
+ALGORITMA 
+return (tahun mod 4 = 0)
+
+
+PROGRAM menentukanTahun
+{menentukan sebuah tahun kabisat atau bukan}
+DEKLARASI 
+  TahunKabisat(tahun:integer)->integer
+ALGORITMA
+  read(tahun)
+  if TahunKabisat(tahun) then
+     write("adalah tahun kabisat",tahun)
+  else 
+    write("adalah bukan tahun kabisat",tahun)

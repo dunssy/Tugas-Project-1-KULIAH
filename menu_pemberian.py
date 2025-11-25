@@ -12,21 +12,21 @@ def create_sheet_if_not_exists (workbook, sheet_name, header=None):
             sheet.append (header)
     return workbook [sheet_name]
 
-def pemberian_beasiswa():
+def pemberian_beasiswa(): # Fungsi untuk memberikan beasiswa kepada siswa
 
     nisn_siswa = input ("Masukkan nisn siswa: ")
     kode_beasiswa = input ("Masukkan kode beasiswa: ")
-    tanggal_terima = datetime.today().strftime('%Y-%m-%d')
-    
+    tanggal_terima = datetime.today().strftime('%Y-%m-%d') # Format tanggal saat ini
+    # Cek apakah file data beasiswa ada
     if not os.path.exists (FILE_NAME):
-        print ("Data beasiswa belum ada.")
+        print ("Data beasiswa belum ada.") 
         return
-
+    # Load workbook dan cek sheet Siswa dan Beasiswa
     workbook = openpyxl.load_workbook (FILE_NAME)
     if 'Siswa' not in workbook.sheetnames or 'Beasiswa' not in workbook.sheetnames:
         print ("Data beasiswa atau siswa tidak ada.")
         return
-
+    
     siswa_sheet = workbook ['Siswa']
     beasiswa_sheet = workbook ['Beasiswa']
     
@@ -55,7 +55,7 @@ def pemberian_beasiswa():
 
     for row in beasiswa_sheet.iter_rows (min_row=2):
         if row [0].value == kode_beasiswa:
-            row[6].value = "Diterima"
+            row[6].value = "Diterima"   
 
     workbook.save (FILE_NAME)
     print("Beasiswa berhasil diterima.")

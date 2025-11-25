@@ -24,8 +24,8 @@ def tambah_siswa ():
         workbook = openpyxl.Workbook ()
     else:
         workbook = openpyxl.load_workbook (FILE_NAME)
-
-    sheet = create_sheet_if_not_exists (workbook, 'siswa', ['No siswa', 'Nama siswa', 'No HP', 'Alamat']) 
+    # Cek atau buat sheet siswa
+    sheet = create_sheet_if_not_exists (workbook, 'Siswa', ['No siswa', 'Nama siswa', 'No HP', 'Alamat']) 
     sheet.append([nisn_siswa, nama_siswa, no_hp, alamat])
     workbook.save (FILE_NAME)
     print("siswa berhasil ditambahkan.")
@@ -37,11 +37,11 @@ def tampil_siswa ():
         return
 
     workbook = openpyxl.load_workbook (FILE_NAME)
-    if 'siswa' not in workbook.sheetnames:
+    if 'Siswa' not in workbook.sheetnames:
         print("Sheet siswa belum ada.")
         return
 
-    sheet = workbook['siswa']
+    sheet = workbook['Siswa']
     if sheet.max_row == 1:
         print ("Belum ada data siswa.")
         return
@@ -64,7 +64,7 @@ def edit_siswa ():
         print("Sheet siswa belum ada.")
         return
 
-    sheet = workbook['siswa']
+    sheet = workbook['Siswa']
     for row in sheet.iter_rows (min_row=2):
         if row [0].value == nisn_siswa:
             nama_siswa = input("Masukkan nama siswa baru: ")
@@ -93,7 +93,7 @@ def hapus_siswa ():
         print("Sheet siswa belum ada.")
         return
     
-    sheet = workbook['siswa']
+    sheet = workbook['Siswa']
     rows_to_delete = []
     for row_index, row in enumerate(sheet.iter_rows (min_row=2), start=2):
         if row [0].value == nisn_siswa:
